@@ -1,6 +1,6 @@
 version: 2
 
-steps:
+jobs:
   build:
     docker:
       - image: circleci/php:5.6.30-browsers
