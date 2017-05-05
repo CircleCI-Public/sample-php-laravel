@@ -1,0 +1,14 @@
+version: 2
+steps:
+  build:
+    docker:
+      - image: circleci/php:5.6.30-browsers
+    steps:
+      - checkout
+      - run: sudo apt install -y libsqlite3-dev
+      - run: composer self-update
+      - run: composer install -n --prefer-dist
+      - run: touch storage/test.sqlite
+      - run: php artisan migrate --env=testing --database=sqlite_testing --force
+      - run: ./vendor/bin/codecept build
+      - run: ./vendor/bin/codecept run
