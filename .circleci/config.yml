@@ -4,6 +4,7 @@ jobs:
   build:
     docker:
       - image: circleci/php:5.6.30-browsers
+    working_directory: ~/laravel
     steps:
       - checkout
       - run: sudo apt install -y libsqlite3-dev
