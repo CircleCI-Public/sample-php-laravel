@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:5.6.30-browsers
+      - image: notnoopci/php:5.6.30-browsers
     working_directory: ~/laravel
     steps:
       - checkout
