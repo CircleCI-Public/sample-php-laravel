@@ -13,7 +13,6 @@ jobs:
           php composer-setup.php
           php -r "unlink('composer-setup.php');"
           sudo mv composer.phar /usr/local/bin/composer
-      - run: touch storage/testing.sqlite
       - run: sudo apt install -y libsqlite3-dev
       - run: composer self-update
       - restore_cache:
@@ -25,7 +24,7 @@ jobs:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
             - vendor
-      - run: touch storage/test.sqlite
+      - run: touch storage/testing.sqlite
       - run: php artisan migrate --env=testing --database=sqlite_testing --force
       - run: ./vendor/bin/codecept build
       - run: ./vendor/bin/codecept run
