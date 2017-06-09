@@ -1,6 +1,6 @@
 # Sample Laravel Application with Codeception tests.
 
-[![Build Status](https://travis-ci.org/janhenkgerritsen/codeception-laravel5-sample.svg?branch=codeception-2.1)](https://travis-ci.org/janhenkgerritsen/codeception-laravel5-sample)
+[![CircleCI](https://circleci.com/gh/CircleCI-Public/circleci-demo-php-laravel.svg?style=svg)](https://circleci.com/gh/CircleCI-Public/circleci-demo-php-laravel)
 
 ### Setup
 
