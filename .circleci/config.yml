@@ -3,12 +3,12 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:7.1.8-browsers
+      - image: circleci/php:7.1-node-browsers
     working_directory: ~/laravel
     steps:
       - checkout
       - run: sudo apt install -y libsqlite3-dev
-      - run: composer self-update
+      - run: sudo composer self-update
       - restore_cache:
           keys:
             - composer-v1-{{ checksum "composer.json" }}
@@ -18,6 +18,15 @@ jobs:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
             - vendor
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "package.json" }}
+            - node-v1-
+      - run: yarn install
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}
+          paths:
+            - node_modules
       - run: touch storage/testing.sqlite
       - run: php artisan migrate --env=testing --database=sqlite_testing --force
       - run: ./vendor/bin/codecept build
