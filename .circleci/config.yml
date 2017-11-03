@@ -1,24 +1,39 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
 version: 2
-
 jobs:
   build:
     docker:
-      - image: circleci/php:7.1.8-browsers
-    working_directory: ~/laravel
+      # Specify the version you desire here
+      - image: circleci/php:7.1-browsers
+      
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # Using the RAM variation mitigates I/O contention
+      # for database intensive operations.
+      # - image: circleci/mysql:5.7-ram
+      # 
+      # - image: redis:2.8.19
+
     steps:
       - checkout
-      - run: sudo apt install -y libsqlite3-dev
-      - run: composer self-update
+
+      # Download and cache dependencies
       - restore_cache:
           keys:
-            - composer-v1-{{ checksum "composer.json" }}
-            - composer-v1-
+          - v1-dependencies-{{ checksum "composer.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
       - run: composer install -n --prefer-dist
+
       - save_cache:
-          key: composer-v1-{{ checksum "composer.json" }}
+          key: v1-dependencies-{{ checksum "composer.lock" }}
           paths:
-            - vendor
-      - run: touch storage/testing.sqlite
-      - run: php artisan migrate --env=testing --database=sqlite_testing --force
-      - run: ./vendor/bin/codecept build
-      - run: ./vendor/bin/codecept run
+            - ./vendor
+        
+      # run tests!
+      - run: ./vendor/bin/phpunit
