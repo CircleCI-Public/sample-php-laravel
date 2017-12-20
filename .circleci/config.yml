@@ -8,8 +8,6 @@ jobs:
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.1-browsers
-      
-      - run: sudo composer self-update
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -22,6 +20,8 @@ jobs:
 
     steps:
       - checkout
+      
+      - run: sudo composer self-update
 
       # Download and cache dependencies
       - restore_cache:
