@@ -9,6 +9,8 @@ jobs:
       # Specify the version you desire here
       - image: circleci/php:7.1-browsers
       
+      - run: sudo composer self-update
+
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
