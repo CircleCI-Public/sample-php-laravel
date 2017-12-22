@@ -21,12 +21,13 @@ jobs:
     steps:
       - checkout
 
-      - run: sudo apt update && sudo apt install zlib1g-dev
+      - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
 
       # Download and cache dependencies
       - restore_cache:
           keys:
+          # "composer.lock" can be used if it is committed to the repo
           - v1-dependencies-{{ checksum "composer.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
