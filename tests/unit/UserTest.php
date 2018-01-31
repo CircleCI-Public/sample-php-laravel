@@ -13,7 +13,7 @@ class UserTest1 extends \Codeception\TestCase\Test
 
     public function testRegister()
     {
-        $email = 'johndoe@test.com';
+        $email = 'johndoe@example.com';
         $password = Hash::make('password');
 
         User::register(['email' => $email, 'password' => $password]);
