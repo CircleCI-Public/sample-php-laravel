@@ -18,7 +18,7 @@ jobs:
       - save_cache:
           key: composer-v1-{{ checksum "composer.lock" }}
           paths:
-            - vendor
+            - /root/.composer/cache/files
       - restore_cache:
           keys:
             - node-v1-{{ checksum "package.json" }}
