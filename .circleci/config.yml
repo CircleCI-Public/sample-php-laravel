@@ -25,6 +25,8 @@ jobs:
       - run: sudo docker-php-ext-install zip
 
       # Download and cache dependencies
+
+      # composer cache
       - restore_cache:
           keys:
           # "composer.lock" can be used if it is committed to the repo
@@ -35,9 +37,12 @@ jobs:
       - run: composer install -n --prefer-dist
 
       - save_cache:
-          key: v1-dependencies-{{ checksum "composer.json" }}
+          key: composer-v1-{{ checksum "composer.lock" }}
           paths:
-            - ./vendor
+            - vendor
+
+      # node cache
+
       - restore_cache:
           keys:
             - node-v1-{{ checksum "package.json" }}
