@@ -45,13 +45,14 @@ jobs:
 
       - restore_cache:
           keys:
-            - node-v2-{{ checksum "package.json" }}
-            - node-v2-
+            - node-v3-{{ checksum "package.json" }}
+            - node-v3-
       - run: yarn install
       - save_cache:
           key: node-v2-{{ checksum "package.json" }}
           paths:
             - node_modules
+            - ~/.yarn
 
       # prepare the database
       - run: touch storage/testing.sqlite
