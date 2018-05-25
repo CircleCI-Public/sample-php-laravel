@@ -63,6 +63,6 @@ jobs:
       - run: ./vendor/bin/codecept build
       - run: ./vendor/bin/codecept run --xml result.xml
       - store_test_results:
-          path: _output
+          path: tests/_output
       - store_artifacts:
-          path: _output
+          path: tests/_output
