@@ -45,11 +45,11 @@ jobs:
 
       - restore_cache:
           keys:
-            - node-v1-{{ checksum "package.json" }}
-            - node-v1-
+            - node-v2-{{ checksum "package.json" }}
+            - node-v2-
       - run: yarn install
       - save_cache:
-          key: node-v1-{{ checksum "package.json" }}
+          key: node-v2-{{ checksum "package.json" }}
           paths:
             - node_modules
 
