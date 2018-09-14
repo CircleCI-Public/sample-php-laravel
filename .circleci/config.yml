@@ -54,6 +54,8 @@ jobs:
             - node_modules
             - ~/.yarn
 
+      - run: npm run build
+
       # prepare the database
       - run: touch storage/testing.sqlite
       - run: php artisan migrate --env=testing --database=sqlite_testing --force

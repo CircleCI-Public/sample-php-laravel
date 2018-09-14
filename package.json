@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "build": "phplint '**/**.php' '!vendor/**/**.php'"
+  },
+  "dependencies": {
+    "phplint": "^2.0.1"
+  },
   "devDependencies": {
     "gulp": "^3.8.8",
     "laravel-elixir": "*"
