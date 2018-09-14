@@ -21,8 +21,16 @@ jobs:
     steps:
       - checkout
 
+      - restore_cache:
+          keys:
+            - libs-v1
+
       - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
+
+      - save_cache:
+          keys:
+            - libs-v1
 
       # Download and cache dependencies
 
