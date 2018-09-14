@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "phplint '**/**.php' '!vendor/**/**.php'"
+    "build": "phplint '**/**.php' '!vendor/**/**.php' '!node_modules/**/**.php"
   },
   "dependencies": {
     "phplint": "^2.0.1"
