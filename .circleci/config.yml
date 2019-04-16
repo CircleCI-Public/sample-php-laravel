@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # Specify the version you desire here
-      - image: circleci/php:7.1-jessie-node-browsers
+      - image: circleci/php:7.3-stretch-node-browsers
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -16,7 +16,7 @@ jobs:
       # for database intensive operations.
       # - image: circleci/mysql:5.7-ram
       # 
-      # - image: redis:2.8.19
+      # - image: redis:3
 
     steps:
       - checkout
@@ -45,11 +45,11 @@ jobs:
 
       - restore_cache:
           keys:
-            - node-v3-{{ checksum "package.json" }}
-            - node-v3-
-      - run: yarn install
+            - node-v4-{{ checksum "package.json" }}
+            - node-v4-
+      - run: npm install
       - save_cache:
-          key: node-v3-{{ checksum "package.json" }}
+          key: node-v4-{{ checksum "package.json" }}
           paths:
             - node_modules
             - ~/.yarn
@@ -60,6 +60,7 @@ jobs:
 
       # run tests with phpunit or codecept
       #- run: ./vendor/bin/phpunit
+      # this example uses codecept but you're not limited to it
       - run: ./vendor/bin/codecept build
       - run: ./vendor/bin/codecept run --xml result.xml
       - store_test_results:
