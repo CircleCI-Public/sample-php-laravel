@@ -1,14 +1,13 @@
 <?php
 
-
+namespace Tests\Unit;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Tests\TestCase;
 
-class UserTest extends \Codeception\TestCase\Test
+class UserTest extends TestCase
 {
-    /**
-     * @var \UnitTester
-     */
     protected $tester;
 
     public function testRegister()
