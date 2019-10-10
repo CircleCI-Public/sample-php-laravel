@@ -4,9 +4,9 @@ namespace Tests\Unit;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
 use Illuminate\Support\Facades\Hash;
-use Tests\TestCase;
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
-class UserTest extends TestCase
+class UserTest extends BaseTestCase
 {
     protected $tester;
 
