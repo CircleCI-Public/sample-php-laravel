@@ -4,29 +4,17 @@
 
 ### Setup
 
-You can setup this sample manually or use [Vagrant](https://www.vagrantup.com/) to automatically set up a development environment for you.
+You can setup this sample use [Laradock](https://laradock.io/) to automatically set up a development environment for you.
 
-#### Manual
+#### Laradock
+- Install docker and docker-compose
 - Clone repo
 - Create your .env file from the example file: `cp .env.testing .env`
-- Install composer dependencies: `composer install`
-- Create databases by creating the following files:
-    - `storage/database.sqlite`
-    - `storage/testing.sqlite`
-- Run the following commands:
-    - `php artisan migrate`
-    - `php artisan migrate --database=sqlite_testing`
-- Server: run `php -S localhost:8000 -t public`
-- Browse to localhost:8000/posts
+- Go to the `laradock` directory
+- Run `docker-compose up -d nginx mysql workspace`
+- Browse to http://localhost/
 
-#### Vagrant
-- Clone repo
-- Cd into the cloned directory
-- Install git submodules: `git submodule update --init --recursive`
-    - you can also add the `--recursive` flag to the `git clone` command to skip this step
-- Run `vagrant up`
-
-To SSH into the machine to run your tests, run `vagrant ssh`. You can access the app on the guest VM under http://192.168.10.10/.
+To SSH into the machine to run your tests, run `docker exec -it laradock_workspace_1 /bin/bash`.
 
 ### To test
 
