@@ -15,7 +15,7 @@ class CustomValidationCest
     
     public function testCustomValidationSuccess(FunctionalTester $I)
     {
-        $I->amOnPage('/validation?postal_code=1234AB&post_id=1');
+        $I->amOnPage('/validation?postal_code=1234AB&post_id=0');
         $I->see('Validation success');
     }
 
