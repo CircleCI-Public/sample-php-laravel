@@ -23,7 +23,7 @@ jobs:
           MYSQL_DATABASE: forge
           MYSQL_ROOT_PASSWORD: ''
           MYSQL_PASSWORD: 'forge'
-
+    resource_class: medium+
     steps:
       - checkout
       - run:
