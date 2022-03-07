@@ -1,4 +1,4 @@
-FROM mongo:latest
+FROM mongo:5.0.6-focal
 
 LABEL maintainer="Mahmoud Zalt <mahmoud@zalt.me>"
 
