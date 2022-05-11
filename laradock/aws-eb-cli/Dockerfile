@@ -1,4 +1,4 @@
-FROM python:slim
+FROM python:3.10-slim-bullseye
 
 LABEL maintainer="melchabcede@gmail.com"
 
