@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-gpu
+FROM tensorflow/tensorflow:2.8.1-gpu
 
 MAINTAINER ahkui <ahkui@outlook.com>
 
