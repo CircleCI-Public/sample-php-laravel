@@ -1,4 +1,4 @@
-FROM redis:latest
+FROM redis:7-bullseye
 
 LABEL maintainer="Mahmoud Zalt <mahmoud@zalt.me>"
 
