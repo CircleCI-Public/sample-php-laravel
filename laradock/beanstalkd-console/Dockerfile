@@ -1,4 +1,4 @@
-FROM php:latest
+FROM php:8.2.0RC6-cli-bullseye
 
 LABEL maintainer="Mahmoud Zalt <mahmoud@zalt.me>"
 
