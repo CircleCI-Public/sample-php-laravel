@@ -78,7 +78,6 @@ jobs:
           path: tests/_output
       - store_artifacts:
           path: tests/_output
-
 workflows:
   version: 2
   workflow:
