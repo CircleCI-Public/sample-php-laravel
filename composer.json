@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "laravel/framework": "5.4.*",
+    "laravel/framework": "5.5.*",
     "flow/jsonpath": "^0.2.4",
     "fzaninotto/faker": "~1.4",
     "symfony/http-foundation": "3.4.35"
